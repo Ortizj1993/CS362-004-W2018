@@ -824,26 +824,21 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
       return 0;
 
     case smithy:
+
+    return SmithyEffect(state,currentPlayer,z,cardDrawn,temphand,drawntreasure);
       //+3 Cards
-      for (i = 0; i < 3; i++)
-	{
-	  drawCard(currentPlayer, state);
-	}
 
-      //discard card from hand
-      discardCard(handPos, currentPlayer, state, 0);
-      return 0;
 
-    case village:
-      //+1 Card
-      drawCard(currentPlayer, state);
+      case village:
+        //+1 Card
+        drawCard(currentPlayer, state);
 
-      //+2 Actions
-      state->numActions = state->numActions + 2;
+        //+2 Actions
+        state->numActions = state->numActions + 2;
 
-      //discard played card from hand
-      discardCard(handPos, currentPlayer, state, 0);
-      return 0;
+        //discard played card from hand
+        discardCard(handPos, currentPlayer, state, 0);
+        return 0;
 
     case baron:
       state->numBuys++;//Increase buys by 1!
@@ -1334,7 +1329,7 @@ int adventurerEffect(struct gameState* state , int currentPlayer, int z, int car
   drawCard(currentPlayer, state);
   cardDrawn = state->hand[currentPlayer][state->handCount[currentPlayer]-1];//top card of hand is most recently drawn card.
   if (cardDrawn == copper || cardDrawn == silver || cardDrawn == gold)
-  drawntreasure+=2; // bug for adventurer 
+  drawntreasure+=2; // bug for adventurer
   else{
   temphand[z]=cardDrawn;
   state->handCount[currentPlayer]--; //this should just remove the top card (the most recently drawn one).
@@ -1349,4 +1344,23 @@ int adventurerEffect(struct gameState* state , int currentPlayer, int z, int car
 
   return 0;
 }
+
+int SmithyEffect(struct gameState* state, int currentPlayer, int z, int cardDrawn, int* temphand, int drawntreasure)
+{
+  //+3 Cards
+
+  int handPos = 0;
+  	//+3 Cards
+  	int i;
+        for (i = 0; i < 3; i++)
+  	{
+  	  drawCard(currentPlayer, state);
+  	}
+
+        //discard card from hand
+        discardCard(handPos, currentPlayer, state, 0);
+        return 0;
+}
+
+
 //end of dominion.c
