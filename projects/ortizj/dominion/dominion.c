@@ -18,6 +18,15 @@ struct gameState* newGame() {
   struct gameState* g = malloc(sizeof(struct gameState));
   return g;
 }
+//prototype adventurerEffect
+int adventurerEffect(struct gameState* state , int currentPlayer, int z, int cardDrawn, int* temphand, int drawntreasure);
+
+// prototype SmithyEffect
+
+int SmithyEffect(struct gameState* state, int currentPlayer, int z, int cardDrawn, int* temphand, int drawntreasure);
+
+//prototype FeastEffect
+int FeastEffect(struct gameState* state, int currentPlayer, int choice1, int *temphand);
 
 int* kingdomCards(int k1, int k2, int k3, int k4, int k5, int k6, int k7,
 		  int k8, int k9, int k10) {
@@ -707,57 +716,8 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
       return 0;
 
     case feast:
-      //gain card with cost up to 5
-      //Backup hand
-      for (i = 0; i <= state->handCount[currentPlayer]; i++){
-	temphand[i] = state->hand[currentPlayer][i];//Backup card
-	state->hand[currentPlayer][i] = -1;//Set to nothing
-      }
-      //Backup hand
 
-      //Update Coins for Buy
-      updateCoins(currentPlayer, state, 5);
-      x = 1;//Condition to loop on
-      while( x == 1) {//Buy one card
-	if (supplyCount(choice1, state) <= 0){
-	  if (DEBUG)
-	    printf("None of that card left, sorry!\n");
-
-	  if (DEBUG){
-	    printf("Cards Left: %d\n", supplyCount(choice1, state));
-	  }
-	}
-	else if (state->coins < getCost(choice1)){
-	  printf("That card is too expensive!\n");
-
-	  if (DEBUG){
-	    printf("Coins: %d < %d\n", state->coins, getCost(choice1));
-	  }
-	}
-	else{
-
-	  if (DEBUG){
-	    printf("Deck Count: %d\n", state->handCount[currentPlayer] + state->deckCount[currentPlayer] + state->discardCount[currentPlayer]);
-	  }
-
-	  gainCard(choice1, state, 0, currentPlayer);//Gain the card
-	  x = 0;//No more buying cards
-
-	  if (DEBUG){
-	    printf("Deck Count: %d\n", state->handCount[currentPlayer] + state->deckCount[currentPlayer] + state->discardCount[currentPlayer]);
-	  }
-
-	}
-      }
-
-      //Reset Hand
-      for (i = 0; i <= state->handCount[currentPlayer]; i++){
-	state->hand[currentPlayer][i] = temphand[i];
-	temphand[i] = -1;
-      }
-      //Reset Hand
-
-      return 0;
+    return FeastEffect(state, currentPlayer, choice1, temphand);
 
     case gardens:
       return -1;
@@ -1361,6 +1321,66 @@ int SmithyEffect(struct gameState* state, int currentPlayer, int z, int cardDraw
         discardCard(handPos, currentPlayer, state, 0);
         return 0;
 }
+
+int FeastEffect(struct gameState* state, int currentPlayer, int choice1, int *temphand)
+{
+	  int i;
+	  int x;
+
+	  //gain card with cost up to 5
+      //Backup hand
+      for (i = 0; i <= state->handCount[currentPlayer]; i++){
+	temphand[i] = state->hand[currentPlayer][i];//Backup card
+	state->hand[currentPlayer][i] = -1;//Set to nothing
+      }
+      //Backup hand
+
+      //Update Coins for Buy
+      updateCoins(currentPlayer, state, 5);
+      x = 1;//Condition to loop on
+      while( x == 1) {//Buy one card
+	if (supplyCount(choice1, state) <= 0){
+	  if (DEBUG)
+	    printf("None of that card left, sorry!\n");
+
+	  if (DEBUG){
+	    printf("Cards Left: %d\n", supplyCount(choice1, state));
+	  }
+	}
+	else if (state->coins < getCost(choice1)){
+	  printf("That card is too expensive!\n");
+
+	  if (DEBUG){
+	    printf("Coins: %d < %d\n", state->coins, getCost(choice1));
+	  }
+	}
+	else{
+
+	  if (DEBUG){
+	    printf("Deck Count: %d\n", state->handCount[currentPlayer] + state->deckCount[currentPlayer] + state->discardCount[currentPlayer]);
+	  }
+
+	  gainCard(choice1, state, 0, currentPlayer);//Gain the card
+	  x = 0;//No more buying cards
+
+	  if (DEBUG){
+	    printf("Deck Count: %d\n", state->handCount[currentPlayer] + state->deckCount[currentPlayer] + state->discardCount[currentPlayer]);
+	  }
+
+	}
+      }
+
+      //Reset Hand
+      for (i = 0; i <= state->handCount[currentPlayer]; i++){
+	state->hand[currentPlayer][i] = temphand[i];
+	temphand[i] = -1;
+      }
+      //Reset Hand
+
+      return 0;
+}
+
+
 
 
 //end of dominion.c
