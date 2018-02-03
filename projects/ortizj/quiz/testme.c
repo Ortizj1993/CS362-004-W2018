@@ -3,6 +3,9 @@
 #include<stdlib.h>
 #include<time.h>
 
+#define STRING_SIZE 5
+
+
 char inputChar()
 {
     // TODO: rewrite this function
