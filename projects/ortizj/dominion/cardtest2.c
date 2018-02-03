@@ -1,11 +1,11 @@
 /*
  * cardtest2.c
  *
- 
+
  */
 
 /*
- 
+
  */
 
 
@@ -51,44 +51,44 @@ int main() {
 
 	// copy the game state to a test case
 	memcpy(&testG, &G, sizeof(struct gameState));
-	
-	discarded = playAdventurer(&testG, thisPlayer, newCards, i, 0, temphand);
-	
+
+	discarded = adventurerEffect(&testG, thisPlayer, newCards, i, 0, temphand);
+
 	//Test that player drew two cards
 	newCards = 2;
 	printf("\n Hand count = %d, Expected hand count = %d\n", testG.handCount[thisPlayer], G.handCount[thisPlayer] + newCards - discarded);
 	test_success = testassert(testG.handCount[thisPlayer] == G.handCount[thisPlayer] + newCards - discarded, test_success);
-	
+
 	printf("\n Deck count = %d, Expected deck count = %d\n", testG.deckCount[thisPlayer], G.deckCount[thisPlayer] + shuffledCards - newCards);
 	test_success = testassert(testG.deckCount[thisPlayer] == G.deckCount[thisPlayer] + shuffledCards - newCards, test_success);
-	
+
 	//Test that player got 0 extra actions
 	xtraActions = 0;
 	printf("\n Actions = %d, Expected number of actions = %d\n", testG.numActions - turnAction, G.numActions + xtraActions - turnAction);
 	test_success = testassert((testG.numActions - turnAction) == (G.numActions + xtraActions - turnAction), test_success);
-	
+
 	//Test that buys do not increase
 	printf("\n Buys = %d, Expected number of buys = %d\n", testG.numBuys, G.numBuys + xtraBuys);
 
 	test_success = testassert(testG.numBuys == (G.numBuys + xtraBuys), test_success);
- 
-	//Test that no state changes occured for the other player	
+
+	//Test that no state changes occured for the other player
 	printf("\n Opponent hand count = %d, Opponent expected hand count = %d\n", testG.handCount[opponent], G.handCount[opponent]);
 	test_success = testassert(testG.handCount[opponent] == (G.handCount[opponent]), test_success);
- 
+
 	printf("\n Opponent deck count = %d, Opponent expected deck count = %d\n", testG.deckCount[opponent], G.deckCount[opponent]);
  	test_success = testassert(testG.deckCount[opponent] == (G.deckCount[opponent]), test_success);
- 
+
  	//Test that no state changes occured to the victory card piles
  	printf("\n Testing victory card piles\n");
- 
+
  	test_success = testassert(testG.supplyCount[estate] == G.supplyCount[estate], test_success);
  	test_success = testassert(testG.supplyCount[duchy] == G.supplyCount[duchy], test_success);
  	test_success = testassert(testG.supplyCount[province] == G.supplyCount[province], test_success);
- 
+
  	//Test that no state changes occured to the kingdom card piles
  	printf("\n Testing kingdom card piles\n");
- 
+
  	test_success = testassert(testG.supplyCount[adventurer] == G.supplyCount[adventurer], test_success);
  	test_success = testassert(testG.supplyCount[embargo] == G.supplyCount[embargo], test_success);
  	test_success = testassert(testG.supplyCount[village] == G.supplyCount[village], test_success);
@@ -99,7 +99,7 @@ int main() {
  	test_success = testassert(testG.supplyCount[tribute] == G.supplyCount[tribute], test_success);
  	test_success = testassert(testG.supplyCount[smithy] == G.supplyCount[smithy], test_success);
  	test_success = testassert(testG.supplyCount[council_room] == G.supplyCount[council_room], test_success);
-  	
+
  	printf("\n test_success = %d", test_success);
  	if(test_success == 1){
  		printf("\n *******%s TEST PASSED*********\n", TESTCARD);
