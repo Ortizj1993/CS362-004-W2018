@@ -23,7 +23,7 @@ int adventurerEffect(struct gameState* state , int currentPlayer, int z, int car
 
 // prototype SmithyEffect
 
-int SmithyEffect(struct gameState* state, int currentPlayer, int z, int cardDrawn, int* temphand, int drawntreasure);
+int SmithyEffect(struct gameState* state, int currentPlayer, int z, int cardDrawn, int* temphand, int drawntreasure,int handPos);
 
 //prototype FeastEffect
 int FeastEffect(struct gameState* state, int currentPlayer, int choice1, int *temphand);
@@ -764,7 +764,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 
     case smithy:
 
-    return SmithyEffect(state,currentPlayer,z,cardDrawn,temphand,drawntreasure);
+    return SmithyEffect(state,currentPlayer,z,cardDrawn,temphand,drawntreasure,handPos);
       //+3 Cards
 
 
@@ -1277,10 +1277,10 @@ int adventurerEffect(struct gameState* state , int currentPlayer, int z, int car
   return 0;
 }
 
-int SmithyEffect(struct gameState* state, int currentPlayer, int z, int cardDrawn, int* temphand, int drawntreasure)
+int SmithyEffect(struct gameState* state, int currentPlayer, int z, int cardDrawn, int* temphand, int drawntreasure, int handPos)
 {
 
-  int handPos = 0;// made handpos = 0 minor bug
+  //int handPos = 0;// made handpos = 0 minor bug
   	//+3 Cards
   	int i;
         for (i = 0; i < 3; i++)
