@@ -6,6 +6,9 @@ void runTest(struct gameState *G, struct gameState *testStatus) {
   int whoseTurn = G->whoseTurn;
   int handPos = (rand() % (G->handCount[whoseTurn])) + 1;
 
+	//declaring function might be error/warning
+int SmithyEffect(struct gameState* state, int currentPlayer, int z, int cardDrawn, int* temphand, int drawntreasure,int handPos);
+	
   test_condition = SmithyEffect(G, whoseTurn, handPos);
   test_assert(!test_condition, "Expected Return Value");
 
