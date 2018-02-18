@@ -18,6 +18,10 @@ struct gameState* newGame() {
   struct gameState* g = malloc(sizeof(struct gameState));
   return g;
 }
+
+//prototypeing test assert
+int testassert(int test, int test_success);
+
 //prototype adventurerEffect
 int adventurerEffect(struct gameState* state , int currentPlayer, int z, int cardDrawn, int* temphand, int drawntreasure);
 
