@@ -1,5 +1,7 @@
 //define
 #include "randtests.h"
+#include "dominion.c"
+
 
 void runTest(struct gameState *G, struct gameState *testStatus) {
   int test_condition;
