@@ -664,7 +664,7 @@ int getCost(int cardNumber)
 
   return -1;
 }
-/*
+
 int testassert(int test, int test_success) {
 	if(!test){
 		printf("****TEST FAILED**** \n");
@@ -673,7 +673,7 @@ int testassert(int test, int test_success) {
 	return test_success;
 }
 
-*/
+
 
 int adventurerEffect(struct gameState* state , int currentPlayer, int z, int cardDrawn, int* temphand, int drawntreasure)
 {
