@@ -13,7 +13,7 @@ void test_assert(int test, char* msg) {
 void test_header(char *name){
 	printf("\n************ Testing %s **********\n\n", name);
 }
-
+//print test
 void test_print(int *arr, int n, char *msg){
 	int i;
 	printf("\n %s \n", msg);
@@ -22,7 +22,7 @@ void test_print(int *arr, int n, char *msg){
 	}
 	printf("*****************\n");
 }
-
+//make cards 
 void makeCards(struct gameState *G, int *cardCount, int (*cards)[MAX_DECK], int size){
 	int i;
 	int rnd = rand() % (size + 1);
