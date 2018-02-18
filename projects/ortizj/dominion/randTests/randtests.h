@@ -2,7 +2,7 @@
 #ifndef _RANDTESTS_H
 #define _RANDTESTS_H
 
-#include "../dominion.c"
+
 #include "../dominion.h"
 #include "../dominion_helpers.h"
 #include "../rngs.h"
