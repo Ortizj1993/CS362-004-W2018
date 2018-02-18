@@ -3,14 +3,15 @@
 #define _RANDTESTS_H
 
 
-#include "../dominion.h"
-#include "../dominion_helpers.h"
-#include "../rngs.h"
+
 #include <string.h>
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
 #include <time.h>
+#include "../dominion.h"
+#include "../dominion_helpers.h"
+#include "../rngs.h"
 
 #define TESTS 100000
 
