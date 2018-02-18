@@ -51,7 +51,7 @@ runtests: testDrawCard
 test_template.o: $(TEST_PATH)test_template.c $(TEST_PATH)randtests.h
 	gcc $(CFLAGS) -c $(TEST_PATH)test_template.c -o test_template.o
 	
-## adventurer
+// adventurer
 
 randomtestadventurer.out: randomtestadventurer
 	cat dominion.c.gcov >> randomtestadventurer.out
@@ -61,7 +61,7 @@ randomtestadventurer: $(TEST_PATH)randomtestadventurer.c $(TEST_FILES) $(OBJ)
 	./randomtestadventurer > randomtestadventurer.out
 	gcov dominion.c >> randomtestadventurer.out
 	
-## smithy
+// smithy
 randomtestcard1.out: randomtestcard1
 	cat dominion.c.gcov >> randomtestcard1.out
 	
@@ -70,7 +70,7 @@ randomtestcard1: $(TEST_PATH)randomtestcard1.c $(TEST_FILES) $(OBJ)
 	./randomtestcard1 > randomtestcard1.out
 	gcov dominion.c >> randomtestcard1.out
 	
-## Village
+// Village
 randomtestcard2.out: randomtestcard2
 	cat dominion.c.gcov >> randomtestcard2.out
 	
