@@ -8,7 +8,7 @@ void runTest(struct gameState *G, struct gameState *testStatus) {
   int temphand[MAX_HAND];
   int z = 0; //  temporary hand counter
 
-  test_condition = cardAdventurer(G, z, drawntreasure, temphand);
+  test_condition = AdventurerEffect(G, z, drawntreasure, temphand);
   test_assert(!test_condition, "Expected Return Value");
 
   //adventurer code from dominion.c
