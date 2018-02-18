@@ -12,6 +12,7 @@ gcov $(TEST_TYPE) $< >> $@result.out
 cat $<.gcov >> $@result.out
 endef
 
+//comment out
 ######################
 #### BASE OBJECTS ####
 
