@@ -6,7 +6,7 @@ TEST_PATH = ./randTests/
 TEST_FILES = $(TEST_PATH)randtests.h $(TEST_PATH)test_template.o
 TEST_TYPE = -b
 
-define runtest =
+define runTest =
 $(TEST_PATH)$(word 2, $^) &> $@result.out
 gcov $(TEST_TYPE) $< >> $@result.out
 cat $<.gcov >> $@result.out
