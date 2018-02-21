@@ -17,7 +17,7 @@
 
 #define TESTS 100000
 
-int testassert(int test, char* msg);
+int test_assert(int test, char* msg);
 void test_header(char* name);
 void test_print(int *arr, int n, char* message);
 void makeCards(struct gameState *G, int *cardCount, int (*cards)[MAX_DECK], int size);
