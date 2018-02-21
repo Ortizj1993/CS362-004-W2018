@@ -701,7 +701,7 @@ int adventurerEffect(struct gameState* state , int currentPlayer, int z, int car
   return 0;
 }
 
-int SmithyEffect(struct gameState* state, int currentPlayer, int z, int cardDrawn, int* temphand, int drawntreasure, int handPos)
+int SmithyEffect(struct gameState* state, int currentPlayer, int handPos)
 {
 
   //int handPos = 0;// made handpos = 0 minor bug
