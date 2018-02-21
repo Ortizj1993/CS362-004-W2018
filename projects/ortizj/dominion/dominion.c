@@ -937,7 +937,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 
     case smithy:
 
-    return SmithyEffect(state,currentPlayer,z,cardDrawn,temphand,drawntreasure,handPos);
+    return SmithyEffect(state,currentPlayer,handPos);
       //+3 Cards
 
 
