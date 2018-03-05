@@ -29,7 +29,7 @@ Change the ‘<=’ operator in the counter condition to ‘<’ to add 1 more i
 
 -------------------------------
 Bug 2
-Title: Adventurer card often results in segmentation fault when 2 treasures are drawn.
+Title: Adventurer card 
 
 Project: kiddr1/dominion
 Version: Riam Sangdoung assignment 2 submission
