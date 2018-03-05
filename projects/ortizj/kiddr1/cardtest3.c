@@ -51,7 +51,7 @@ int main() {
 	// copy the game state to a test case
 	memcpy(&testG, &G, sizeof(struct gameState));
 
-	playSmithy(struct gameState *state, int handPos);
+	playSmithy(&testG,struct gameState *state, int handPos);
 
 	//Test that player drew three cards
 	newCards = 3;
