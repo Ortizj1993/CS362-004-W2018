@@ -50,7 +50,7 @@ int main() {
 	// copy the game state to a test case
 	memcpy(&testG, &G, sizeof(struct gameState));
 
-	discarded = playAdventurer(struct gameState *state);
+	discarded = playAdventurer(&testG, thisPlayer, newCards, i, 0, temphand);
 
 	//Test that player drew two cards
 	newCards = 2;
