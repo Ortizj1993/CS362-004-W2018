@@ -1,1 +1,55 @@
-blah blah
+Bug-Reports
+
+
+Bug 1
+Title: Smithy card 
+
+Project: kiddr1/dominion
+Version: Riam Sangdoung assignment 2 submission
+
+Reported by: Jesus Ortiz
+Email: ortizj@oregonstate.edu
+Created: 3/4/2018
+Updated: N/A
+Resolved: N/A
+Type: Bug
+Status: Open
+Priority: Major
+Resolution: Not resolved
+Affected Version: Riam Sangdoung assignment 2 submission
+File name: dominion.c
+Environment: MAC OS sierra, GCC C Compiler, flip.oregonstate.edu
+Description: The number of cards that a player is supposed to draw when Smithy is played is 3 cards. It appear that the number of cards actually drawn is 2 cards.
+
+Code causing Bug:
+playSmithy function has an iterative loop that draws cards from the deck. The counter of this loop executes for numbers 0 and 1. That is 1 iteration less than required to draw 3 cards.
+
+Suggested Fix:
+Change the ‘<=’ operator in the counter condition to ‘<’ to add 1 more iteration and draw another card.
+
+-------------------------------
+Bug 2
+Title: Adventurer card often results in segmentation fault when 2 treasures are drawn.
+
+Project: kiddr1/dominion
+Version: Riam Sangdoung assignment 2 submission
+
+Reported by: Jesus Ortiz
+Email: ortizj@oregonstate.edu
+Created: 3/4/2018
+Updated: N/A
+Resolved: N/A
+Type: Bug
+Status: Open
+Priority: Major
+Resolution: Not resolved
+Affected Version: Riam Sangdoung assignment 2 submission
+File name: dominion.c
+Environment: MAC OS sierra, GCC C Compiler, flip.oregonstate.edu
+Description: The silver carddrawn has been deleted and does not draw any silver when drawcard is called.
+
+Code causing Bug:
+playAdventurer function receives a drawn treasure count of 2. When it tries to access the silver treasure card there is an error in the function.
+
+Suggested Fix:
+Add the silver cardDrawn back into the if loop that draws the treasure.
